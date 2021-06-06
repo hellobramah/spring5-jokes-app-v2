@@ -2,9 +2,11 @@ package hellobramah.springframework.spring5jokesappv2.controllers;
 
 import hellobramah.springframework.spring5jokesappv2.services.JokeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class JokeController {
     private final JokeService jokeService;
     @Autowired
@@ -14,7 +16,7 @@ public class JokeController {
 
     @RequestMapping({"/", ""})
     private String showJoke(Model model){
-        model.addAttribute("jokes",jokeService.getJokes());
+        model.addAttribute("joke",jokeService.getJokes());
         return "index";
 
     }
